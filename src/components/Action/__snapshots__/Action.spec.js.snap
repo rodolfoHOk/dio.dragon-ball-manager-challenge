@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Should render action 1`] = `
+exports[`Should show modal when try invoke 1`] = `
 <div>
   <div
     class="sc-aXZVg gSWiUs"
