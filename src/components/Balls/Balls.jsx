@@ -5,11 +5,9 @@ import {
   CardImg,
   CardBody,
   CardTitle,
-  CardSubtitle,
   Badge,
   Col,
   Row,
-  Form,
   FormGroup,
   Label,
   Button,
@@ -35,9 +33,9 @@ const Balls = ({ balls, profile }) => {
   const toggle = () => setModal(!modal);
 
   const validateBall = (ball) => {
-    setBall(ball)
-    setModal(true)
-  }
+    setBall(ball);
+    setModal(true);
+  };
 
   const filterByMe = () => {
     return balls.filter((ball) => ball.owner === profile.id);
@@ -58,54 +56,59 @@ const Balls = ({ balls, profile }) => {
 
   const updateList = (id) => {
     const newList = balls.map((ball) => {
-      if(ball.id === id) return {
-        ...ball,
-        owner: profile.id
-      }
-      return ball
-    })
-    const newProfile = profile.balls.push(id)
+      if (ball.id === id)
+        return {
+          ...ball,
+          owner: profile.id,
+        };
+      return ball;
+    });
+    const newProfile = profile.balls.push(id);
 
-    setList(newList)
-    setModal(false)
-  }
+    setList(newList);
+    setModal(false);
+  };
 
   return (
     <>
-      <Flex my='10px;' justifyContent='space-between'>
-        <Text fontSize='50px'>Esferas</Text>
+      <Flex my="10px;" justifyContent="space-between">
+        <Text fontSize="50px">Esferas</Text>
         <FormGroup>
-          <Label for='filter'>Filtrar</Label>
+          <Label for="filter">Filtrar</Label>
           <Input
-            type='select'
-            name='select'
-            id='filter'
+            type="select"
+            name="select"
+            id="filter"
             data-testid="filter"
             onChange={({ target: { value } }) => filter(value)}
           >
-            <option value='all'>Todas as esferas</option>
-            <option value='me'>Minhas esferas</option>
-            <option value='notme'>Não tenho</option>
+            <option value="all">Todas as esferas</option>
+            <option value="me">Minhas esferas</option>
+            <option value="notme">Não tenho</option>
           </Input>
         </FormGroup>
       </Flex>
       <Row>
         {list.length > 0 ? (
           list.map((ball, i) => (
-            <Col sm='3' key={ball.id}>
+            <Col sm="3" key={ball.id}>
               <Card>
-                <CardImg top width='100%' src={ball.image} alt={ball.name} />
+                <CardImg top width="100%" src={ball.image} alt={ball.name} />
                 <CardBody>
                   <CardTitle>{ball.name}</CardTitle>
                   {ball.owner !== profile.id ? (
                     <>
-                      <Badge color='danger'>Não encontrada</Badge>
-                      <Button size='sm' color='warning' onClick={() => validateBall(ball)}>
+                      <Badge color="danger">Não encontrada</Badge>
+                      <Button
+                        size="sm"
+                        color="warning"
+                        onClick={() => validateBall(ball)}
+                      >
                         encontrei
                       </Button>
                     </>
                   ) : (
-                    <Badge color='success'>Encontrada</Badge>
+                    <Badge color="success">Encontrada</Badge>
                   )}
                 </CardBody>
               </Card>
@@ -119,20 +122,22 @@ const Balls = ({ balls, profile }) => {
       <Modal isOpen={modal} toggle={toggle}>
         <ModalBody>
           <FormGroup>
-            <Label for='code'>Insira o código da esfera de {currentBall?.name}:</Label>
+            <Label for="code">
+              Insira o código da esfera de {currentBall?.name}:
+            </Label>
             <Input
-              type='number'
-              name='ballcode'
-              id='code'
-              placeholder='Ex: 23412'
+              type="number"
+              name="ballcode"
+              id="code"
+              placeholder="Ex: 23412"
             />
           </FormGroup>
         </ModalBody>
         <ModalFooter>
-        <Button color='success' onClick={() => updateList(currentBall?.id)}>
+          <Button color="success" onClick={() => updateList(currentBall?.id)}>
             Validar
           </Button>
-          <Button color='secondary' onClick={toggle}>
+          <Button color="secondary" onClick={toggle}>
             Voltar
           </Button>
         </ModalFooter>

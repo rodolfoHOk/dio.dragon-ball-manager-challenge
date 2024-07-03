@@ -2,13 +2,8 @@ import React, { useState } from 'react';
 import { Box, Flex } from 'rebass'
 import {
   Label,
-  Input,
-  Select,
-  Textarea,
-  Radio,
-  Checkbox,
+  Input
 } from '@rebass/forms';
-import axios from 'axios'
 
 const FormCep = () => {
   const initialAddress = {

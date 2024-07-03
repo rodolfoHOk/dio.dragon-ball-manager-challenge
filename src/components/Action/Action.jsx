@@ -1,13 +1,5 @@
 import React, { useState } from 'react';
-import {
-  Container,
-  Row,
-  Col,
-  Button,
-  Modal,
-  ModalFooter,
-  ModalBody,
-} from 'reactstrap';
+import { Button, Modal, ModalFooter } from 'reactstrap';
 import { Text } from 'rebass';
 import styled from 'styled-components';
 
