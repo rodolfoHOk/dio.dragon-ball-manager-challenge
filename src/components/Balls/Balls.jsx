@@ -92,7 +92,7 @@ const Balls = ({ balls, profile }) => {
         {list.length > 0 ? (
           list.map((ball, i) => (
             <Col sm="3" key={ball.id}>
-              <Card>
+              <Card data-testid="card">
                 <CardImg top width="100%" src={ball.image} alt={ball.name} />
                 <CardBody>
                   <CardTitle>{ball.name}</CardTitle>
@@ -100,6 +100,7 @@ const Balls = ({ balls, profile }) => {
                     <>
                       <Badge color="danger">Não encontrada</Badge>
                       <Button
+                        data-testid={`card-button-${Array.from(ball.name)[0]}`}
                         size="sm"
                         color="warning"
                         onClick={() => validateBall(ball)}
@@ -134,7 +135,13 @@ const Balls = ({ balls, profile }) => {
           </FormGroup>
         </ModalBody>
         <ModalFooter>
-          <Button color="success" onClick={() => updateList(currentBall?.id)}>
+          <Button
+            data-testid={`validate-button-${
+              currentBall ? Array.from(currentBall?.name)[0] : '0'
+            }`}
+            color="success"
+            onClick={() => updateList(currentBall?.id)}
+          >
             Validar
           </Button>
           <Button color="secondary" onClick={toggle}>
