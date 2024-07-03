@@ -24,7 +24,7 @@ Aqui vão alguns casos para testar porém você pode ir além:
 
 ## Como rodar
 
-Para fazer este repositório funcionar você deve clonar este repositório
+Para fazer este repositório funcionar você deve clonar este repositório e ter o Node.js 16 instalado
 
 Instalar as dependências e rodar:
 
