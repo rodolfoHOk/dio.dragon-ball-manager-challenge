@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should render action 1`] = `
+<div>
+  <div
+    class="sc-aXZVg gSWiUs"
+    data-testid="card-shenlong"
+  >
+    <div
+      class="css-1brk784"
+    >
+      Invocar shenlong
+    </div>
+    <button
+      class="btn btn-warning"
+      data-testid="invoke-button"
+      type="button"
+    >
+      Invocar
+    </button>
+  </div>
+</div>
+`;
