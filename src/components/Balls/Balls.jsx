@@ -63,7 +63,7 @@ const Balls = ({ balls, profile }) => {
         };
       return ball;
     });
-    const newProfile = profile.balls.push(id);
+    profile = profile.balls.push(id);
 
     setList(newList);
     setModal(false);
